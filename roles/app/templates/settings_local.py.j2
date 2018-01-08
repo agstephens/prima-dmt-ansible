@@ -9,7 +9,7 @@ def _getSK():
     "Return secret key."
     return open("{{ etc_path }}/{{ django_key_file }}").read().strip()
 
-BASE_PATH = "%s/.." % os.path.dirname(__file__)
+BASE_DIR = "%s/.." % os.path.dirname(__file__)
 
 # Set ALLOWED_HOSTS so that site can be served when DEBUG is False
 ALLOWED_HOSTS = ["{{ host_name }}"]
@@ -30,8 +30,8 @@ DATABASES = {
         'NAME': '{{ db_name }}',                         # Or path to database file if using sqlite3.
         'USER': '{{ db_user }}',                                     # Not used with sqlite3.
         'PASSWORD': _getPW(),                              # Not used with sqlite3.
-        'HOST': '{{ db_host }}',                     # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '{{ db_port }}',                                     # Set to empty string for default. Not used with sqlite3.
+        'HOST': '',                     # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                                     # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -57,6 +57,10 @@ STATICFILES_DIRS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = _getSK()
 
+# Override STATICFILES_DIRS
+STATICFILES_DIRS = [
+    "{{ deployment_path }}/static"
+]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

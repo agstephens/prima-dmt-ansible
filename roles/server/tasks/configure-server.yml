@@ -14,10 +14,10 @@
 
 # Collect static files from apps into static directory
 
-- name: collect static files in django
-  django_manage:
-    command=collectstatic
-    app_path={{ project_path }}
-    settings={{ prima_dm_site_name }}.settings
-    virtualenv={{ venv_path }}
-  changed_when: False
+#- name: collect static files in django
+#  django_manage:
+#    command=collectstatic
+#    app_path={{ project_path }}
+#    settings={{ prima_dm_site_name }}.settings
+#    virtualenv={{ venv_path }}
+#  changed_when: False

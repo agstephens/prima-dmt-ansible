@@ -3,7 +3,7 @@
 # These don't have to be explicitly imported by vars_files: they are autopopulated
 
 # Name of the package containing the site
-prima_dm_site_name: prima_dm_site
+prima_dm_site_name: pdata_site
 
 # Location of versioned releases
 project_root_path: '/usr/local/{{ project_name }}'
