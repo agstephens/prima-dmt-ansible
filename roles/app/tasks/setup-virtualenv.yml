@@ -34,3 +34,5 @@
 - name: install dependencies of the app from requirements.txt file
   pip: virtualenv={{ venv_path }}
        requirements={{ git_repo_path }}/requirements.txt
+  environment:
+    PATH: $PATH:/usr/pgsql-9.6/bin
